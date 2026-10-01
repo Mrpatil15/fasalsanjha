@@ -7,7 +7,7 @@ export const DEMO_PERSONAS: Persona[] = [
     nameHi: 'रमेश पाटिल',
     roleTitle: 'Farmer (3 Acres, Nashik)',
     location: 'Pimpalgaon Baswant, Nashik, MH',
-    avatar: 'https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?auto=format&fit=crop&q=80&w=200',
+    avatar: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&q=80&w=200',
     bio: 'Experienced onion & soybean farmer with 18 years in horticulture. Uses drip irrigation & IPM practices.',
     badge: 'Verified Farmer ✓ | 7/12 & Soil Health Verified',
     details: {

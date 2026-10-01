@@ -131,7 +131,7 @@ export const Home: React.FC = () => {
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-2card overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
                 <img
-                  src="https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?auto=format&fit=crop&q=80&w=800"
+                  src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&q=80&w=800"
                   alt="Farmer Ramesh Patil in Nashik Onion field"
                   className="w-full h-80 sm:h-96 object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
                 />

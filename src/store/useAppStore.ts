@@ -128,7 +128,7 @@ export const useAppStore = create<AppState>((set, get) => ({
         'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=800'
       ],
       farmerPhone: '+91 98221 44102',
-      farmerAvatar: 'https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?auto=format&fit=crop&q=80&w=200',
+      farmerAvatar: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&q=80&w=200',
     };
     set((state) => ({
       cropListings: [fullListing, ...state.cropListings],

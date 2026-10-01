@@ -67,7 +67,7 @@ export const NewListing: React.FC = () => {
       farmerId: 'farmer-patil',
       farmerName: 'Ramesh Patil',
       farmerPhone: '+91 98221 44102',
-      farmerAvatar: 'https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?auto=format&fit=crop&q=80&w=200',
+      farmerAvatar: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&q=80&w=200',
       location: formData.location,
       district: formData.district,
       state: formData.state,
