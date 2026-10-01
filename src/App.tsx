@@ -1,5 +1,4 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import { HashRouter, Routes, Route, Outlet } from 'react-router-dom';
 import { Header } from './components/common/Header';
 import { Footer } from './components/common/Footer';
 import { BottomNav } from './components/common/BottomNav';
@@ -37,7 +36,7 @@ const AppLayout: React.FC = () => {
 
 export const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         {/* Fullscreen standalone Pitch Deck Mode */}
         <Route path="/pitch" element={<PitchDeck />} />
@@ -106,7 +105,7 @@ export const App: React.FC = () => {
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 export default App;
