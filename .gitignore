@@ -6,12 +6,14 @@
 # testing
 /coverage
 
-# next.js
+# production build
+/dist
+/build
 /.next/
 /out/
 
-# production
-/build
+# legacy backup
+_legacy_yaghar/
 
 # misc
 .DS_Store
@@ -39,8 +41,8 @@ __pycache__/
 *.pyo
 *.pyd
 .pytest_cache/
+dead_leads.db
 
 # streamlit secrets
 .streamlit/secrets.toml
 secrets.toml
-

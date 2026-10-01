@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Dead-Lead Reactivation | Central Mumbai Real Estate</title>
+  <style>
+    /* ==========================================================================
+       RESET & VIEWPORT FIT FOR 1-SCREEN MOBILE PRESENTATION (NO SCROLLING)
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      height: 100dvh; /* dynamic mobile viewport height */
+      max-height: 100dvh;
+      overflow: hidden; /* Strict guarantee: zero scrolling on mobile */
+      background-color: #070d18;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Container: Centered on desktop, 100% full screen on mobile */
+    .screen-wrapper {
+      width: 100%;
+      max-width: 430px; /* Standard flagship phone width */
+      height: 100%;
+      height: 100dvh;
+      background: radial-gradient(circle at 50% 0%, #152238 0%, #0a1120 70%, #060a13 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(10px, 2.2vh, 18px) clamp(14px, 4vw, 20px);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      position: relative;
+    }
+
+    /* Subtle luxury ambient glow */
+    .screen-wrapper::after {
+      content: "";
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY & PALETTE (NAVY & GOLD)
+       ========================================================================== */
+    :root {
+      --gold-primary: #f59e0b;
+      --gold-gradient: linear-gradient(135deg, #fcd34d 0%, #d97706 100%);
+      --gold-subtle: rgba(245, 158, 11, 0.15);
+      --gold-border: rgba(245, 158, 11, 0.35);
+      --navy-card: rgba(18, 30, 49, 0.85);
+      --text-muted: #94a3b8;
+      --text-dim: #cbd5e1;
+    }
+
+    /* Target Placeholder Highlight */
+    .placeholder-val {
+      color: #fde047;
+      font-weight: 700;
+      background: rgba(253, 224, 71, 0.15);
+      padding: 1px 4px;
+      border-radius: 4px;
+      border-bottom: 1px dashed #fde047;
+    }
+
+    /* Corridor Pill Badge */
+    .corridor-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      align-self: flex-start;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid var(--gold-border);
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: clamp(9px, 1.4vh, 10.5px);
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: #fbbf24;
+      text-transform: uppercase;
+    }
+    .corridor-badge span.dot {
+      width: 5px;
+      height: 5px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Section 1: Headline */
+    .headline {
+      font-size: clamp(15.5px, 2.7vh, 19.5px);
+      font-weight: 800;
+      line-height: 1.25;
+      color: #ffffff;
+      margin-top: clamp(2px, 0.8vh, 6px);
+      letter-spacing: -0.3px;
+    }
+    .headline em {
+      font-style: normal;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Section 2: Subheading */
+    .subheading {
+      font-size: clamp(11px, 1.7vh, 12.5px);
+      line-height: 1.35;
+      color: var(--text-dim);
+      border-left: 2.5px solid var(--gold-primary);
+      padding-left: 8px;
+      margin-top: clamp(2px, 0.6vh, 4px);
+    }
+    .subheading strong {
+      color: #ffffff;
+    }
+
+    /* Section 3: "What We Do" */
+    .what-we-do-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: clamp(6px, 1.3vh, 10px) 10px;
+    }
+    .card-label {
+      font-size: clamp(9px, 1.3vh, 10px);
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.7px;
+      color: #f59e0b;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .what-we-do-text {
+      font-size: clamp(10.5px, 1.6vh, 12px);
+      line-height: 1.35;
+      color: #e2e8f0;
+    }
+
+    /* Section 4: "How It Works" - 3 Steps */
+    .steps-section {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(4px, 0.8vh, 7px);
+    }
+    .step-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 7px;
+      padding: clamp(4px, 1vh, 7px) 9px;
+    }
+    .step-num {
+      width: clamp(20px, 3vh, 24px);
+      height: clamp(20px, 3vh, 24px);
+      border-radius: 6px;
+      background: var(--gold-gradient);
+      color: #0b1120;
+      font-weight: 900;
+      font-size: clamp(10px, 1.5vh, 12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-content {
+      font-size: clamp(10px, 1.5vh, 11.8px);
+      line-height: 1.3;
+      color: #f1f5f9;
+    }
+    .step-content strong {
+      color: #fcd34d;
+    }
+
+    /* Section 5: Proof */
+    .proof-banner {
+      background: linear-gradient(90deg, rgba(34, 197, 94, 0.12) 0%, rgba(245, 158, 11, 0.12) 100%);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      border-radius: 7px;
+      padding: clamp(5px, 1.1vh, 8px) 10px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .proof-badge {
+      background: #16a34a;
+      color: #ffffff;
+      font-size: 8.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 2px 5px;
+      border-radius: 3px;
+      letter-spacing: 0.4px;
+      flex-shrink: 0;
+    }
+    .proof-text {
+      font-size: clamp(10.5px, 1.55vh, 12px);
+      line-height: 1.3;
+      color: #f8fafc;
+      font-weight: 500;
+    }
+
+    /* Section 6: Pricing */
+    .pricing-line {
+      text-align: center;
+      font-size: clamp(10.5px, 1.6vh, 12px);
+      color: #e2e8f0;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 6px;
+      padding: clamp(4px, 0.8vh, 6px) 8px;
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+    .pricing-line strong {
+      color: #fde047;
+    }
+
+    /* Section 7: Contact & Large Button */
+    .action-zone {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(5px, 1vh, 8px);
+    }
+    .contact-details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: clamp(10px, 1.5vh, 11.5px);
+      color: var(--text-muted);
+      padding: 0 4px;
+    }
+    .contact-details a {
+      color: #fcd34d;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Large Tap-Friendly CTA Button */
+    .cta-btn {
+      width: 100%;
+      min-height: clamp(44px, 6.8vh, 52px);
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #0b1120;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: clamp(13px, 2.1vh, 15px);
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.38);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: transform 0.1s ease, filter 0.1s ease;
+    }
+    .cta-btn:active {
+      transform: scale(0.98);
+      filter: brightness(0.92);
+    }
+    .cta-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* Helper note for pitch */
+    .micro-footer {
+      font-size: 8.5px;
+      color: #64748b;
+      text-align: center;
+      letter-spacing: 0.2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen-wrapper">
+
+    <!-- Corridor Tag -->
+    <div class="corridor-badge">
+      <span class="dot"></span>
+      Kanjurmarg • Bhandup • Mulund • Vikhroli • Powai
+    </div>
+
+    <!-- 1. Headline -->
+    <h1 class="headline">
+      Sitting on <em>500+ untouched buyer leads</em> from last season?
+    </h1>
+
+    <!-- 2. Subheading -->
+    <p class="subheading">
+      Every cold inquiry you ignore is a <strong>₹1.5L–₹3L brokerage deal</strong> your rival is closing this month.
+    </p>
+
+    <!-- 3. What We Do -->
+    <div class="what-we-do-card">
+      <div class="card-label">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        What We Do
+      </div>
+      <p class="what-we-do-text">
+        <strong>Lead scoring + human re-engagement calls.</strong> We dial your dormant database, weed out invalid numbers, and hand your sales team warm, qualified buyers ready for site visits.
+      </p>
+    </div>
+
+    <!-- 4. How It Works (3 Steps) -->
+    <div class="steps-section">
+      <!-- Step 1 -->
+      <div class="step-row">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Hand over your list:</strong> Export your old Excel, CRM, or portal sheet (no cleanup needed).
+        </div>
+      </div>
+      <!-- Step 2 -->
+      <div class="step-row">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>We score &amp; prioritize:</strong> We filter dead numbers &amp; identify buyers with active intent.
+        </div>
+      </div>
+      <!-- Step 3 -->
+      <div class="step-row">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Ready-to-call in 48 hours:</strong> Get a prioritized hot-list of buyers ready for site visits.
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Proof -->
+    <div class="proof-banner">
+      <div class="proof-badge">Pilot Run</div>
+      <div class="proof-text">
+        <span class="placeholder-val">[142]</span> leads reactivated, <span class="placeholder-val">[18.4]%</span> response rate in Mulund–Kanjurmarg.
+      </div>
+    </div>
+
+    <!-- 6. Pricing (One Line Only) -->
+    <div class="pricing-line">
+      Flat <strong>₹<span class="placeholder-val">[6,500]</span></strong> per batch <span style="color:var(--text-muted); font-size: 0.9em;">(₹5,000–8,000 range)</span> • Zero lock-in • 48-hr turnaround
+    </div>
+
+    <!-- 7. Contact & Tap-Friendly CTA -->
+    <div class="action-zone">
+      <div class="contact-details">
+        <span>Direct / WhatsApp:</span>
+        <a href="https://wa.me/919800000000?text=Hi,%20I%20want%20to%20reactivate%20our%20dead%20real%20estate%20leads." target="_blank">
+          <span class="placeholder-val">[+91 98200 XXXXX]</span>
+        </a>
+      </div>
+
+      <!-- Single large tap-friendly button -->
+      <a class="cta-btn" href="https://wa.me/919800000000?text=Hi,%20let's%20book%20a%2010-min%20demo%20for%20dead-lead%20reactivation" role="button">
+        <!-- WhatsApp Icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span>Book a 10-Minute Demo</span>
+      </a>
+
+      <div class="micro-footer">
+        Confidential client pitch • Corridor: Kanjurmarg–Bhandup–Mulund–Vikhroli–Powai
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

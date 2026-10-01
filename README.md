@@ -1,147 +1,132 @@
-# YAGHAR — The Real Estate Operating System for India 🇮🇳
-
-**YAGHAR** is a production-ready, multi-tenant SaaS web application built specifically for independent real estate consultants and small brokerages in India. A consultant can sign up, load demo data, and run their whole business on day one from their smartphone or laptop.
-
----
-
-## 🚀 Key Features
-
-1. **Workspace & Multi-Tenancy**:
-   - One workspace per consultant or brokerage with Supabase Row Level Security (RLS) isolation.
-   - Roles: Owner and Agent. Team invitations with seat limits based on plan tier.
-2. **Lead CRM**:
-   - Kanban pipeline (New, Contacted, Site Visit, Negotiation, Booked, Lost).
-   - Duplicate phone detection (+91 normalization) before logging.
-   - Bulk CSV import with field mapping and duplicate skip count.
-   - "Reactivate Dead Leads" engine with 1-tap WhatsApp pitch templates.
-3. **Property Inventory**:
-   - Resale, new projects, and rental listings.
-   - Indian Lakh/Crore pricing formatting (`₹ 1.45 Cr`, `₹ 85 L`).
-   - MahaRERA / State RERA registration number verification.
-   - Specs: BHK, carpet area (sq.ft), floor, furnishing, amenities, Google Maps location pin, photos.
-4. **Lead-to-Property Matcher**:
-   - Auto-suggests matching properties for each lead based on BHK, budget range, and preferred locality.
-   - Match score (%) with 1-tap WhatsApp sharing.
-5. **WhatsApp-First Sharing**:
-   - Click-to-chat (`wa.me`) deep links with URL-encoded messages.
-   - Template library with live variables (`{lead_name}`, `{property_title}`, `{price_formatted}`, `{locality}`, `{bhk}`, `{microsite_link}`, `{location_pin}`).
-   - Modular architecture ready for WhatsApp Cloud API integration.
-6. **Public Consultant Microsite (`/c/[slug]`)**:
-   - Shareable, branded page per consultant with logo, brand colour, RERA badge, bio, stats, and testimonials.
-   - Featured property listings with direct WhatsApp inquiry buttons.
-   - Interactive lead form that automatically creates a lead in the consultant's CRM.
-   - In-app QR code generator & download for visiting cards.
-7. **Site Visit Scheduler**:
-   - Calendar & agenda view of upcoming visits.
-   - Outcome logger (Completed, Cancelled, No-show, 1-5 rating, feedback notes) that advances leads in the pipeline.
-   - WhatsApp location pin and visit reminder links.
-8. **Deals & Commission Tracker**:
-   - Track deal value (INR), brokerage %, total commission, 18% GST, and expected vs received payout.
-   - **GST-Ready Tax Invoice**: printable/downloadable invoice with SAC Code 997222 (Real Estate Agent Services), CGST 9% + SGST 9% or IGST 18%, Client GSTIN/PAN, and RERA credentials.
-9. **Document Vault & Checklists**:
-   - Pre-loaded Indian transaction checklists for Resale Flat Buy (Index II, 7/12 extract, Society NOC, OC, 30-year title search, KYC), Rent, and Sell.
-   - Document upload and association with deals.
-10. **Indian Real Estate Calculators**:
-    - Home Loan EMI Calculator with amortization breakdown.
-    - Stamp Duty & Registration Calculator (Maharashtra default: 5-7% stamp duty + 1% metro cess + ₹30,000/1% registration cap; 1% female concession; configurable states).
-    - Brokerage Calculator (1%, 2% + 18% GST).
-    - Rental Yield Calculator (Gross & Net yield).
-    - Home Loan Affordability Calculator (50% FOIR banking norms).
-    - Lead capture popup: "Get calculation on WhatsApp".
-11. **Marketing Kit**:
-    - AI Social Media Caption Generator for Instagram and WhatsApp status.
-    - Property Flyer Generator (clean social card ready to download and share).
-    - 30-Second Reel Script Templates (Hook, tour highlights, amenities, call to action).
-12. **Ads Lead Intake**:
-    - Webhook endpoint (`/api/webhooks/leads`) for Meta Lead Ads and Google Ads.
-    - Cost per lead (CPL) tracker by ad source.
-13. **Analytics Dashboard**:
-    - Leads by source breakdown, funnel conversion rates, average response time, follow-ups due today, and revenue pipeline.
-14. **AI Assistant**:
-    - Server-side route (`/api/ai/assistant`) to summarize leads, suggest next follow-up actions, and draft WhatsApp messages in the consultant's tone.
-15. **Built-to-Sell Layer**:
-    - Landing page with hero, feature grid, interactive ROI calculator, transparent INR pricing, and FAQ.
-    - Subscription Plans: 14-day Free Trial, Starter (₹999/mo), Pro (₹2,499/mo), Team (₹4,999/mo).
-    - Razorpay subscription integration and webhook handling (`/api/webhooks/razorpay`).
-    - Super-Admin panel (`/admin`): all tenants, MRR, active trials, and 1-click impersonation.
-    - DPDP 2023 Compliant: Terms, Privacy Policy, Refund Policy, and 1-click machine-readable JSON data export.
+# 🌾 FasalSanjha (फसल साझा)
+### *"Sow Together. Share the Harvest."* | *"Jodta Hai Kisan Ko, Bazaar Se"*
+**Bharat Agri-Financial Services Pvt. Ltd. (Proposed, Pre-Launch)**
 
 ---
 
-## 🛠️ Tech Stack
+## 🚀 Quickstart & Local Setup
 
-- **Framework**: Next.js 14 (App Router) + TypeScript
-- **Styling**: Tailwind CSS + Lucide Icons + Radix UI primitives
-- **Database**: Supabase PostgreSQL with Row Level Security (RLS)
-- **Payments**: Razorpay Subscriptions (INR, UPI, Cards, NetBanking)
-- **Deployment**: Vercel (Mobile-first PWA)
-- **i18n**: English, Hindi, and Marathi dictionary architecture
+To run the production-grade demo locally:
 
----
-
-## 📦 Getting Started
-
-### 1. Clone & Install Dependencies
 ```bash
-git clone <repo-url>
-cd yaghar
+# 1. Install dependencies
 npm install
-```
 
-### 2. Configure Environment Variables
-Copy `.env.example` to `.env.local`:
-```bash
-cp .env.example .env.local
-```
-
-Fill in your Supabase, Razorpay, and AI credentials. (Note: The app includes a built-in interactive demo fallback, so you can test and explore immediately even without external credentials!).
-
-### 3. Supabase Setup
-1. Create a new project at [supabase.com](https://supabase.com).
-2. Go to **SQL Editor** and run the contents of `src/supabase/schema.sql`.
-3. To load demo data into your database, run `src/supabase/seed.sql`.
-4. Copy your project URL and Anon Key from **Settings > API** into `.env.local`.
-
-### 4. Run Development Server
-```bash
+# 2. Launch Vite development server
 npm run dev
+
+# 3. Open browser at
+http://localhost:3000
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+*(Note for Windows PowerShell environments: If script execution policy restricts `npm`, use `npm.cmd install` and `npm.cmd run dev`)*.
 
 ---
 
-## 💳 Razorpay Configuration
+## 🌟 What is FasalSanjha?
 
-1. Log in to your [Razorpay Dashboard](https://dashboard.razorpay.com).
-2. Generate API Keys in **Settings > API Keys** and copy the Key ID & Key Secret to `.env.local`.
-3. Go to **Settings > Webhooks** and add a webhook pointing to:
-   `https://your-domain.vercel.app/api/webhooks/razorpay`
-4. Subscribe to the following events:
-   - `subscription.charged`
-   - `subscription.cancelled`
-   - `payment.captured`
-   - `payment.failed`
-5. Copy the Webhook Secret to `RAZORPAY_WEBHOOK_SECRET` in `.env.local`.
+FasalSanjha is an **agri-fintech platform + full-stack agricultural marketplace** built for smallholder Indian farmers and retail/institutional investors. It replaces predatory, fixed-interest debt with **risk-shared, equity-style crop cycle partnerships**, backed by:
+1. **Regulated Escrow Nodal Banking** (ICICI Bank Partner Escrow)
+2. **100% Protected Land Ownership** (Land is never mortgaged, transferred, or charged)
+3. **Dual Insurance Protection** (PMFBY yield cover + 50–70% investor capital calamity pool)
+4. **Satellite NDVI & Drone Tracking** (Sentinel-2 multispectral vegetation monitoring)
+5. **The Complete Agricultural Chain** (Land → Funding → Inputs → Cultivation → Monitoring → Harvest → Storage → Processing → Logistics → Buyer → Sale → Settlement)
 
 ---
 
-## 🚀 Deployment on Vercel
+## 👥 Demo Personas (Persistent Header Switcher)
 
-1. Push your repository to GitHub.
-2. Go to [vercel.com](https://vercel.com) and import the project.
-3. Add all environment variables from `.env.local` to the Vercel project settings.
-4. Deploy!
+Switch instantly between 5 pre-configured personas via the persistent **"Demo As..."** dropdown in the header:
+
+| Persona | Name & Location | Key Profile & Role |
+|---|---|---|
+| 👨🌾 **Farmer** | **Ramesh Patil**, Pimpalgaon Baswant, Nashik | 3.2 acres owned, Garva Red Onion & Soybean; verified 7/12 & soil health cards; 0% default rate. |
+| 💰 **Investor** | **Neha Sharma**, Bandra West, Mumbai | Product Lead; ₹50,000 invested across 4 active crop cycles; 17.4% realized IRR; Tier 1 Escrow verified. |
+| 🏪 **Business Buyer** | **Fresh Basket Retail (Amit Rao)**, Thane | Regional supermarket chain (24 outlets); procures 180+ tonnes monthly with direct farm-gate escrow settlement. |
+| 🤝 **Labour / Landowner** | **Sunita Jadhav & Rajesh Kulkarni**, Nashik / USA | NRI landowner (Mr. Kulkarni) provides 5-acre polyhouse; Sunita leads a skilled 12-woman harvesting brigade under a 50:50 sharing agreement. |
+| 🛡️ **Admin / Risk Desk** | **Vikram Deshmukh**, Thane HQ | Oversees 42 district field agents, 7/12 Mahabhulekh verification queue, dispute arbitration, and ₹4.28 Cr GMV escrow pool. |
 
 ---
 
-## 📋 Launch Checklist
+## ⏱️ 3-Minute Investor Pitch & Demo Script
 
-- [x] Multi-tenant database schema with RLS tested
-- [x] Phone number normalization (+91) and duplicate detection active
-- [x] WhatsApp click-to-chat deep links verified
-- [x] GST tax invoice generator with SAC 997222 verified
-- [x] Maharashtra stamp duty & registration calculator validated
-- [x] Public consultant microsite `/c/[slug]` with QR code functional
-- [x] DPDP 2023 compliance pages and 1-click JSON data export operational
-- [x] Super-admin panel `/admin` with tenant impersonation active
-- [x] 1-click "Load Demo Data" button tested
+Use this exact walkthrough during your pitch tomorrow:
+
+### **Minute 0:00 – 0:30 | The Problem & The Solution (Landing)**
+1. Open [`/`](http://localhost:3000). Show the Hero headline: *"Farmer kheti karega, investor paisa lagayega — FasalSanjha dono ko jodega."*
+2. Scroll through the **Animated Value Chain Strip** (*Fund → Farm → Monitor → Store → Process → Transport → Sell → Settle*).
+3. Highlight the **"Why Equity, Not Debt" Comparison Table**: explain how fixed debt traps farmers when crops fail, while FasalSanjha shares upside and downside. Point out the **"Land Ownership Never Transferred"** shield.
+4. Show the **11 colorful USP cards** and live platform counters (1,240+ farmers, ₹4.28 Cr funded).
+
+### **Minute 0:30 – 1:00 | "Post Your Requirement" Hero Matching Engine**
+1. Click the glowing **"Post Your Requirement"** CTA in the header or hero.
+2. Form is pre-filled: *"Need 10 tonnes wheat, Grade A, Thane, by 15 October, delivery required."*
+3. Click **"Run Matching Engine"**. 
+4. Watch the radar animation scan geo-coordinates and verified titles.
+5. In 2 seconds, showcase 5 multi-role matched partners:
+   - **Farmer:** Balasaheb Khot (Solapur Sharbati Wheat, 98% match)
+   - **Logistics:** Kisan Express (10T Eicher Pro, ₹26/km, 96% match)
+   - **Processor:** Sahyadri Roller Flour Mills (93% match)
+   - **Storage:** Lasalgaon WDRA Dry Granary Hub (91% match)
+6. Click **"Send Quote"** to demonstrate instant RFQ generation with escrow protection.
+
+### **Minute 1:00 – 1:45 | Farmer Creates Listing & Investor Funds via Escrow**
+1. Switch persona to 👨🌾 **Farmer (Ramesh Patil)**.
+2. Navigate to **Farmer Portal** (`/farmer/dashboard`) → Click **"Create New Crop Listing"**.
+3. Point out the **Automated Risk Grading Engine**:
+   - Staple grains → **Grade A** (20–30% investor share)
+   - Cash crops → **Grade B** (30–45% investor share)
+   - High-value horticulture → **Grade C** (45–60% investor share)
+4. Switch persona to 💰 **Investor (Neha Sharma)** → Go to **Invest Marketplace** (`/invest`).
+5. Filter by Grade B or Nashik. Click **"Invest via Escrow"** on Nashik Red Onion.
+6. The **Tripartite Agreement Modal** opens:
+   - Walk through the auto-generated contract clauses (Land Sovereignty Clause 1, Escrow Tranches Clause 2, Dual Insurance Clause 3).
+   - Enter mock 6-digit OTP (e.g. `123456`) to demonstrate Aadhaar e-Sign authentication.
+   - Choose UPI / Escrow Deposit → Click **"Pay to Escrow"**.
+   - Confetti triggers, funding progress bar updates, and contract is confirmed!
+
+### **Minute 1:45 – 2:15 | Satellite NDVI Crop Tracking & Tranche Governance**
+1. Navigate to **Live Tracking** (`/track`).
+2. Show **Nashik Garva Red Onion (Plot 2B)**:
+   - Health Score: **91/100 (Optimal Vigor)**
+   - Sentinel-2 NDVI: **0.82 High Canopy Density**
+   - Inspect the visual **multispectral field polygon heatmap**.
+3. Scroll through the **Vertical Milestone Journey**:
+   - Tranche 1 (40% Sowing) → Released ✓
+   - Tranche 2 (35% Mid-Season NDVI audit) → Released ✓
+   - Tranche 3 (25% Pre-Harvest) → Click **"Simulate Agent Verification & Disburse"** to disburse funds live!
+4. Show the geo-tagged photo feed with timestamps and GPS coordinates.
+5. Switch to **Settled Strawberry Cycle** (`/track` → select settled cycle):
+   - Showcase the **Settlement Waterfall Split**: Gross ₹3,94,250 → Investor return + profit ₹1,34,532 → Farmer payout ₹2,40,374 → Platform fee ₹9,856 → Insurance disaster reserve ₹3,386.
+   - Click **"Download Settlement Statement (PDF)"**.
+
+### **Minute 2:15 – 2:40 | FasalSanjha Bazaar Hub & Market Intelligence**
+1. Navigate to **Bazaar** (`/bazaar`):
+   - **Agri-Inputs:** Click **"Negotiate"** on Bhima Super Seeds to show buyer-seller counter-offer modal with transparent 20% sales + 10% freight breakdown.
+   - **Equipment:** Show 10L agricultural drone sprayer and tractor per-day booking.
+   - **Land & Labour:** Open the **Model Labour-Land Sharing Agreement** (30–60% typical labour share; land ownership 100% protected).
+2. Navigate to **Market Prices** (`/prices`):
+   - Show live 30-day interactive price trend chart for Lasalgaon Red Onion (₹2,450/q, +6.5%, e-NAM linked).
+
+### **Minute 2:40 – 3:00 | Fullscreen Pitch Deck Mode (`/pitch`)**
+1. Click **"🎤 Pitch Deck"** in the top navigation bar.
+2. Fullscreen slide presentation with keyboard arrow navigation:
+   - **Slide 5:** Interactive 9-block **Business Model Canvas** (replicates proposed venture model).
+   - **Slide 6:** Live **Revenue Simulator** (adjust sliders for farmers, average ticket, and marketplace GMV to project platform revenues in real-time).
+   - **Slide 7:** TAM (₹20 Lakh Cr+) → SAM (₹10,000 Cr) → SOM (₹40–60 Cr).
+   - **Slide 11:** 3-Year Financial Model Table (Unit economics to break-even by Year 3).
+   - **Slide 14:** **The Ask: ₹2.50 Crore Seed Round** for pilot rollout across Nashik & Ahmednagar.
+
+---
+
+## 🛡️ Trust, Legal & Regulatory Framework
+
+- **Escrow Mechanics:** Capital sits in a partner scheduled commercial bank nodal account (ICICI Bank). FasalSanjha does not hold or commingle client funds.
+- **Land Protection:** Under Section 4 of the Tripartite Agreement, land ownership is never transferred, mortgaged, or pledged. Investor recourse is strictly limited to agreed crop sales ratio.
+- **Compliance Alignment:** Structured under the Model Contract Farming Act and state APMC framework. Adheres to DPDP Act 2023 for role-based consent and cryptographic data hashing.
+
+---
+
+## 🔄 Resetting Demo State
+
+A persistent **"Reset Demo Data"** button is located in the footer of every screen. Clicking it reinitializes all listings, tranches, negotiations, and alerts to their clean initial state.
