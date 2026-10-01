@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FasalSanjha - Comprehensive Product Specification & Investor Pitch Dossier</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,300&display=swap');
+
+    @page {
+      size: A4;
+      margin: 18mm 16mm 18mm 16mm;
+      @bottom-right {
+        content: counter(page);
+        font-family: 'Inter', sans-serif;
+        font-size: 9pt;
+        color: #64748b;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      line-height: 1.55;
+      font-size: 10pt;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+
+    .page {
+      page-break-after: always;
+      position: relative;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    /* Cover Page */
+    .cover {
+      min-height: 250mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20mm 10mm 10mm 10mm;
+      background: linear-gradient(135deg, #0b4f2e 0%, #145a32 50%, #063820 100%);
+      color: #ffffff;
+      border-radius: 8px;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      background: rgba(245, 166, 35, 0.2);
+      border: 1px solid #f5a623;
+      color: #f5a623;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .cover h1 {
+      font-size: 34pt;
+      font-weight: 800;
+      margin: 0 0 10px 0;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .cover h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 14pt;
+      font-weight: 400;
+      color: #e2e8f0;
+      margin: 0 0 25px 0;
+      font-style: italic;
+    }
+
+    .cover-meta {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      font-size: 9.5pt;
+    }
+
+    .cover-meta strong {
+      color: #f5a623;
+    }
+
+    /* Headings */
+    h2.section-title {
+      font-size: 16pt;
+      font-weight: 800;
+      color: #0b4f2e;
+      border-bottom: 2px solid #8cc63f;
+      padding-bottom: 6px;
+      margin-top: 10px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3 {
+      font-size: 12pt;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 16px;
+      margin-bottom: 6px;
+    }
+
+    h4 {
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: #0b4f2e;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    p {
+      margin: 0 0 8px 0;
+    }
+
+    /* Cards & Containers */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+
+    .card-accent {
+      border-left: 4px solid #0b4f2e;
+      background: #f0fdf4;
+    }
+
+    .card-gold {
+      border-left: 4px solid #f5a623;
+      background: #fffbeb;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 16px 0;
+      font-size: 9pt;
+    }
+
+    th {
+      background: #0b4f2e;
+      color: #ffffff;
+      font-weight: 600;
+      text-align: left;
+      padding: 8px 10px;
+      border: 1px solid #0b4f2e;
+    }
+
+    td {
+      padding: 7px 10px;
+      border: 1px solid #e2e8f0;
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 12px;
+      font-size: 8pt;
+      font-weight: 600;
+    }
+
+    .badge-green { background: #dcfce7; color: #166534; }
+    .badge-yellow { background: #fef9c3; color: #854d0e; }
+    .badge-blue { background: #e0f2fe; color: #075985; }
+    .badge-purple { background: #f3e8ff; color: #6b21a8; }
+
+    /* Steps / Pipeline */
+    .flow-step {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      background: #0b4f2e;
+      color: #fff;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 8.5pt;
+      flex-shrink: 0;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content strong {
+      color: #0b4f2e;
+      font-size: 9.5pt;
+    }
+
+    .highlight-box {
+      background: #ecfdf5;
+      border: 1.5px solid #10b981;
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin: 10px 0;
+    }
+
+    .metric-value {
+      font-size: 16pt;
+      font-weight: 800;
+      color: #0b4f2e;
+      line-height: 1.2;
+    }
+
+    .metric-label {
+      font-size: 8pt;
+      color: #64748b;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    ul, ol {
+      margin: 4px 0 10px 20px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: COVER -->
+  <div class="page">
+    <div class="cover">
+      <div>
+        <div class="cover-badge">Confidential • Investor & Jury Pitch Dossier</div>
+        <h1>FasalSanjha (फसल साझा)</h1>
+        <h2>"Sow Together. Share the Harvest." & "Jodta Hai Kisan Ko, Bazaar Se"</h2>
+        <p style="font-size: 11pt; color: #cbd5e1; max-width: 600px; line-height: 1.6;">
+          A Comprehensive End-to-End Agri-Fintech & Agricultural Value Chain Marketplace.
+          Replacing predatory rural debt with transparent, equity-like crop investment agreements, verified by satellite NDVI and smart escrow milestones.
+        </p>
+      </div>
+
+      <div>
+        <div style="background: rgba(255, 255, 255, 0.08); padding: 15px; border-radius: 6px; margin-bottom: 25px;">
+          <strong style="color: #8cc63f; display: block; margin-bottom: 4px;">PITCH CORE THESIS</strong>
+          "Farmer kheti karega, investor paisa lagayega — FasalSanjha dono ko jodega." 
+          Land ownership is 100% safeguarded under Section 5(1) MLRC; investors earn attractive real-asset returns (18–32% IRR); and smallholder farmers double net income debt-free.
+        </div>
+
+        <div class="cover-meta">
+          <div>
+            <strong>Company:</strong> Bharat Agri-Financial Services Pvt. Ltd. (Pre-Launch)<br>
+            <strong>Pilot Focus:</strong> Nashik, Pune & Ahmednagar (Maharashtra)<br>
+            <strong>Target Market:</strong> 146M Indian Farmers & ₹8.5L Cr Agri Credit
+          </div>
+          <div>
+            <strong>Founder / Presenter:</strong> Yash Patil & Team<br>
+            <strong>Live Demo:</strong> https://mrpatil15.github.io/fasalsanjha/<br>
+            <strong>Document Version:</strong> 1.0 (Investor Pitch Edition)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 2: EXECUTIVE SUMMARY & THE COMPLETE VALUE CHAIN -->
+  <div class="page">
+    <h2 class="section-title">1. Executive Summary & The Problem</h2>
+    
+    <div class="grid-2">
+      <div class="card card-gold">
+        <h4 style="color: #b45309; margin-top:0;">The Farmer's Crisis (Debt Trap)</h4>
+        <p>• <strong>86%</strong> of Indian farmers are small/marginal (<2 hectares).</p>
+        <p>• Formal bank credit requires heavy collateral and bureaucratic approval cycles that take 3–6 weeks — arriving too late for optimal sowing windows.</p>
+        <p>• Farmers resort to local moneylenders charging <strong>24% to 36% compound annual interest</strong>.</p>
+        <p>• In drought or pest attacks, debt compounds, leading to land mortgage loss and severe distress.</p>
+      </div>
+      <div class="card card-accent">
+        <h4 style="color: #0b4f2e; margin-top:0;">The Investor's Dilemma</h4>
+        <p>• Retail and HNI investors hold over ₹65 Lakh Crore in low-yielding fixed deposits and volatile stocks.</p>
+        <p>• Agriculture offers 18–32% cyclical real-asset returns, but investors face zero access, opaque middlemen, and fears of agrarian disputes.</p>
+        <p>• <strong>The Gap:</strong> No institutional bridge exists providing legally binding, insured, satellite-monitored crop investment agreements.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 15px;">2. The 12-Stage Closed Loop Ecosystem</h2>
+    <p>FasalSanjha does not just lend money; it powers the entire agricultural operating cycle across 12 connected stages:</p>
+
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0;">
+      <div class="card" style="padding: 8px; text-align: center;">
+        <span class="badge badge-green">01. LAND</span>
+        <p style="font-size: 8pt; margin-top: 4px;">Geo-tagged farm, 7/12 extract & soil health verification.</p>
+      </div>
+      <div class="card" style="padding: 8px; text-align: center;">
+        <span class="badge badge-green">02. FUNDING</span>
+        <p style="font-size: 8pt; margin-top: 4px;">Peer-to-peer crop equity via Tripartite Escrow Agreement.</p>
+      </div>
+      <div class="card" style="padding: 8px; text-align: center;">
+        <span class="badge badge-green">03. INPUTS</span>
+        <p style="font-size: 8pt; margin-top: 4px;">Direct seeds & organic fertilizers with in-app counter-offers.</p>
+      </div>
+      <div class="card" style="padding: 8px; text-align: center;">
+        <span class="badge badge-green">04. CULTIVATION</span>
+        <p style="font-size: 8pt; margin-top: 4px;">Agronomist advisory & micro-climate weather alerts.</p>
+      </div>
+      <div class="card" style="padding: 8px; text-align: center;">
+        <span class="badge badge-blue">05. MONITORING</span>
+        <p style="font-size: 8pt; margin-top: 4px;">Sentinel-2 Satellite NDVI & ground agent visits.</p>
+      </div>
+      <div class="card" style="padding: 8px; text-align: center;">
+        <span class="badge badge-blue">06. HARVEST</span>
+        <p style="font-size: 8pt; margin-top: 4px;">Yield grading, moisture check & QR tracking.</p>
+      </div>
+      <div class="card" style="padding: 8px; text-align: center;">
+        <span class="badge badge-blue">07. STORAGE</span>
+        <p style="font-size: 8pt; margin-top: 4px;">WDRA-certified granaries & cold storage booking.</p>
+      </div>
+      <div class="card" style="padding: 8px; text-align: center;">
+        <span class="badge badge-blue">08. PROCESSING</span>
+        <p style="font-size: 8pt; margin-top: 4px;">Connecting dal, oil, flour mills & juice units.</p>
+      </div>
+      <div class="card" style="padding: 8px; text-align: center;">
+        <span class="badge badge-yellow">09. LOGISTICS</span>
+        <p style="font-size: 8pt; margin-top: 4px;">Tractor, mini-truck & reefer dispatch with GPS.</p>
+      </div>
+      <div class="card" style="padding: 8px; text-align: center;">
+        <span class="badge badge-yellow">10. BUYER</span>
+        <p style="font-size: 8pt; margin-top: 4px;">F2B grocery chains, exporters & mandi traders.</p>
+      </div>
+      <div class="card" style="padding: 8px; text-align: center;">
+        <span class="badge badge-yellow">11. SALE</span>
+        <p style="font-size: 8pt; margin-top: 4px;">e-NAM benchmark price discovery & B2B contracting.</p>
+      </div>
+      <div class="card" style="padding: 8px; text-align: center;">
+        <span class="badge badge-yellow">12. SETTLEMENT</span>
+        <p style="font-size: 8pt; margin-top: 4px;">Automated waterfall escrow split & PDF statement.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <strong>Core Takeaway for Pitch:</strong> While competitors offer fragmented point solutions (only lending, or only input commerce, or only mandi price info), FasalSanjha unifies the complete chain so that an investor's rupee can be traced through seeds, soil, satellite images, harvest, and sales invoice.
+    </div>
+  </div>
+
+  <!-- PAGE 3: EQUITY VS DEBT & RISK UNDERWRITING -->
+  <div class="page">
+    <h2 class="section-title">3. The Core Innovation: Crop Equity vs Predatory Debt</h2>
+    
+    <p>Traditional agricultural financing treats crops as credit collateral. FasalSanjha restructures crop production into a <strong>limited-liability, cyclical joint venture</strong>:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Traditional Moneylender</th>
+          <th>Kisan Credit Card (Bank)</th>
+          <th>FasalSanjha Model</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Cost of Capital</strong></td>
+          <td>24% – 36% compound interest</td>
+          <td>7% – 9% simple interest</td>
+          <td><strong>0% Interest</strong> (Agreed profit-share e.g., 65/35)</td>
+        </tr>
+        <tr>
+          <td><strong>Crop Failure Scenario</strong></td>
+          <td>Debt traps farmer; land seized</td>
+          <td>Default, CIBIL ruined, penalty fees</td>
+          <td><strong>Loss Shared; Capital insured 50–70%</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Collateral Required</strong></td>
+          <td>Gold, Land deeds, Blank cheques</td>
+          <td>7/12 Land extract mortgaged</td>
+          <td><strong>Zero Collateral</strong> (Crop production agreement)</td>
+        </tr>
+        <tr>
+          <td><strong>Capital Disbursement</strong></td>
+          <td>Lump sum cash (often misspent)</td>
+          <td>Lump sum credit line</td>
+          <td><strong>3 Escrow Tranches</strong> tied to verified milestones</td>
+        </tr>
+        <tr>
+          <td><strong>Monitoring</strong></td>
+          <td>None (only collection harassment)</td>
+          <td>None</td>
+          <td><strong>Satellite NDVI + Ground Field Agent</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="color: #0b4f2e;">Land Ownership Protection (Section 5(1) MLRC)</h3>
+    <div class="card card-accent">
+      <p><strong>Ironclad Legal Guarantee:</strong> Investors NEVER acquire any rights, liens, or claims over the farmer's land. The Tripartite Agreement explicitly restricts investor rights to the economic proceeds of the specific crop harvest. Section 5(1) of the Maharashtra Land Revenue Code protects agricultural land against alienation to non-agriculturists.</p>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 15px;">4. Agronomic Risk Scoring Matrix (Grades A, B, C)</h2>
+    <p>Every crop listing submitted by a verified farmer undergoes automated and field-agent underwriting before going live:</p>
+
+    <div class="grid-3">
+      <div class="card" style="border-top: 4px solid #16a34a;">
+        <span class="badge badge-green">GRADE A (Low Risk)</span>
+        <h4 style="margin: 6px 0 2px 0;">Established Cycles</h4>
+        <p style="font-size: 8.5pt;">• Perennial / Drip-irrigated crops (Soybean, Wheat, Onion, Grapes).<br>
+        • Farmer track record: >3 successful cycles.<br>
+        • Soil test score > 80/100.<br>
+        • <strong>Target Return:</strong> 14% – 18% IRR.<br>
+        • <strong>Investor Share:</strong> 25% – 35%.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid #ca8a04;">
+        <span class="badge badge-yellow">GRADE B (Moderate Risk)</span>
+        <h4 style="margin: 6px 0 2px 0;">High Value Seasonal</h4>
+        <p style="font-size: 8.5pt;">• Rainfed + supplemental well irrigation (Cotton, Pulses, Tomato).<br>
+        • Farmer track record: 1–3 cycles.<br>
+        • Weather variance protection active.<br>
+        • <strong>Target Return:</strong> 18% – 24% IRR.<br>
+        • <strong>Investor Share:</strong> 35% – 45%.</p>
+      </div>
+      <div class="card" style="border-top: 4px solid #dc2626;">
+        <span class="badge" style="background:#fee2e2; color:#991b1b;">GRADE C (Higher Risk)</span>
+        <h4 style="margin: 6px 0 2px 0;">Intensive Commercial</h4>
+        <p style="font-size: 8.5pt;">• Exotic vegetables, strawberry, floriculture.<br>
+        • Price volatility sensitive.<br>
+        • Mandatory PMFBY + Capital Insurance cover.<br>
+        • <strong>Target Return:</strong> 24% – 32% IRR.<br>
+        • <strong>Investor Share:</strong> 45% – 55%.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 4: THE 5 PERSONAS & FEATURE WALKTHROUGHS -->
+  <div class="page">
+    <h2 class="section-title">5. The 5 User Personas (Clickable in Demo)</h2>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Persona</th>
+          <th>Name & Profile</th>
+          <th>Goals & Value Delivered</th>
+          <th>Key Demo Screens</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>👨‍🌾 <strong>Farmer</strong></td>
+          <td><strong>Ramesh Patil</strong><br>Nashik, MH • 3 Acres<br>Crops: Nashik Red Onion & Soybean</td>
+          <td>Accesses ₹45,000 seasonal working capital without mortgaging land; buys verified seeds at wholesale; receives automated payout.</td>
+          <td>Farmer Dashboard, Create Listing Wizard, Milestone updates, Payout summary.</td>
+        </tr>
+        <tr>
+          <td>💰 <strong>Investor</strong></td>
+          <td><strong>Neha Sharma</strong><br>Mumbai • FinTech Executive<br>₹50,000 Portfolio across 4 cycles</td>
+          <td>Diversifies into high-yield agricultural real assets with satellite transparency, escrow safety, and automated tax statements.</td>
+          <td>Invest Marketplace, Tripartite E-Sign Modal, NDVI Satellite Monitor, Portfolio Donut.</td>
+        </tr>
+        <tr>
+          <td>🏪 <strong>Business Buyer</strong></td>
+          <td><strong>Fresh Basket Retail</strong><br>Thane • 14 Retail Outlets<br>Buys 10T Onion / 5T Wheat weekly</td>
+          <td>Sources directly from verified farm clusters; avoids 4 layers of APMC mandi middlemen; guaranteed quality grades.</td>
+          <td>F2B Portal, Post Requirement Radar, Logistics Dispatch tracker, B2B Invoicing.</td>
+        </tr>
+        <tr>
+          <td>🤝 <strong>Labour & Landowner</strong></td>
+          <td><strong>Sunita Jadhav</strong> (Labourer)<br><strong>Mr. Kulkarni</strong> (NRI Landowner, 8 Acres idle)</td>
+          <td>Landowner earns 40% crop return on idle land safely; agricultural labour gets legally enforced 30–60% produce share.</td>
+          <td>Land & Labour Hub, Sharecropping agreement preview, Harvest split calculator.</td>
+        </tr>
+        <tr>
+          <td>🛡️ <strong>Admin / Agent</strong></td>
+          <td><strong>Field Operations Desk</strong><br>District Field Lead, Nashik Cluster</td>
+          <td>Verifies 7/12 land extract, inspects seed germination, approves milestone escrow tranche disbursements.</td>
+          <td>Admin Verification Queue, Dispute Arbitration Desk, Satellite NDVI manual override.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-title" style="margin-top: 15px;">6. Deep-Dive: The Tripartite Agreement & Smart Escrow</h2>
+    
+    <div class="flow-step">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <strong>Farmer Listing Creation:</strong> Farmer enters crop type, acreage, working capital needed (e.g. ₹50,000), tenure (120 days), and proposed profit split (70% Farmer / 30% Investor).
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <strong>Investor Backing & Legal E-Sign:</strong> Investor browses listings, picks Grade A Nashik Red Onion, selects investment amount (min ₹5,000), reviews the auto-generated Tripartite Crop Investment Agreement, and e-signs via OTP.
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <strong>Capital Deposited in Escrow Account:</strong> Funds do not go directly into the farmer's personal savings account. They are held in a scheduled bank escrow account operated by Bharat Agri-Financial Services.
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="step-number">4</div>
+      <div class="step-content">
+        <strong>3-Tranche Milestone Disbursement:</strong>
+        <ul>
+          <li><strong>Tranche 1 (40% - ₹20,000):</strong> Disbursed upon land tilling and verified input purchase (seeds & base fertilizer).</li>
+          <li><strong>Tranche 2 (35% - ₹17,500):</strong> Disbursed at 45 days post-germination upon field agent geo-tagged photo & NDVI verification.</li>
+          <li><strong>Tranche 3 (25% - ₹12,500):</strong> Disbursed at 80 days pre-harvest for labour, pest-spray, and harvest crates.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="step-number">5</div>
+      <div class="step-content">
+        <strong>Harvest, Direct Sale & Waterfall Split:</strong> The produce is sold directly to Fresh Basket Retail at ₹2,200/quintal. Gross proceeds (₹88,000) are routed back into the Escrow.
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 5: HARVEST WATERFALL & THE 11 BAZAAR MODULES -->
+  <div class="page">
+    <h2 class="section-title">7. The Waterfall Settlement Mechanics</h2>
+    <p>Here is the exact real-world financial settlement executed in the demo for Cycle #FS-2026-08 (Nashik Red Onion, 3 Acres):</p>
+
+    <div class="grid-2">
+      <div class="card card-accent">
+        <h4 style="margin-top:0;">Harvest Financial Metrics</h4>
+        <p>• <strong>Initial Working Capital:</strong> ₹50,000 (100% funded)</p>
+        <p>• <strong>Harvest Yield:</strong> 40 Quintals (Grade A export quality)</p>
+        <p>• <strong>Realized Sale Price:</strong> ₹2,200 / Quintal</p>
+        <p>• <strong>Gross Revenue Realized:</strong> ₹88,000</p>
+        <p>• <strong>Net Profit Generated:</strong> ₹38,000</p>
+      </div>
+
+      <div class="card card-gold">
+        <h4 style="margin-top:0;">Waterfall Escrow Split</h4>
+        <p>• <strong>Investor Capital Returned:</strong> ₹50,000</p>
+        <p>• <strong>Investor Profit Share (35%):</strong> ₹13,300<br>
+           <span style="font-size: 8pt; color: #b45309;">(Total Investor Payout: ₹63,300 ➔ <strong>26.6% absolute return in 120 days</strong>)</span></p>
+        <p>• <strong>Farmer Profit Share (65%):</strong> ₹24,700<br>
+           <span style="font-size: 8pt; color: #166534;">(Farmer took ₹0 debt, got full inputs, and pocketed ₹24,700 clean profit)</span></p>
+        <p>• <strong>FasalSanjha Platform Fee (5% on net profit):</strong> ₹1,900</p>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 15px;">8. FasalSanjha Bazaar: The 11 Core Modules</h2>
+    <p>Beyond crop funding, FasalSanjha is a comprehensive B2B/B2C agri-commerce marketplace:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Module</th>
+          <th>What It Does</th>
+          <th>Key Innovation / Commercial Model</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Agri-Inputs</strong></td>
+          <td>Certified seeds, bio-fertilizers, organic pesticides, micro-nutrients.</td>
+          <td><strong>In-App Negotiation:</strong> Buyer can send counter-offers. 20% marketing + 10% shipping fee.</td>
+        </tr>
+        <tr>
+          <td><strong>2. Equipment Rental</strong></td>
+          <td>Tractors, rotavators, power tillers, sprayers, threshers.</td>
+          <td>Per-day rental booking with security deposit escrow; saves smallholder capex.</td>
+        </tr>
+        <tr>
+          <td><strong>3. Sell Produce</strong></td>
+          <td>Farmers post upcoming harvest with grade, photos, expected price.</td>
+          <td>Pre-orders from institutional buyers before harvest reduces price crashes.</td>
+        </tr>
+        <tr>
+          <td><strong>4. Fodder & Feed</strong></td>
+          <td>Silage, green fodder, crop residue, cattle feed for dairies & gaushalas.</td>
+          <td>Eliminates stubble burning by monetizing crop residue directly to milk federations.</td>
+        </tr>
+        <tr>
+          <td><strong>5. Land & Labour</strong></td>
+          <td>Matches idle agricultural land with skilled landless labourers.</td>
+          <td>Legally vetted 30–60% crop-sharing contracts. Land ownership never mortgaged.</td>
+        </tr>
+        <tr>
+          <td><strong>6. Farm-to-Business (F2B)</strong></td>
+          <td>Direct supply to supermarket chains, cloud kitchens, hotel aggregators.</td>
+          <td>Pre-harvest contract farming agreements with quality specifications.</td>
+        </tr>
+        <tr>
+          <td><strong>7. Agri-Processing</strong></td>
+          <td>Flour, dal, edible oil, spice, and fruit pulping units.</td>
+          <td>Connects raw crop producers to processors for value-added 15–30% higher realization.</td>
+        </tr>
+        <tr>
+          <td><strong>8. Storage & Granaries</strong></td>
+          <td>WDRA-registered state warehouses, cold storages, private silos.</td>
+          <td>Instant booking with negotiable warehouse receipt (e-NWR) pledge financing.</td>
+        </tr>
+        <tr>
+          <td><strong>9. Logistics Fleet</strong></td>
+          <td>Farm-to-mandi / farm-to-warehouse transport on demand.</td>
+          <td>GPS-tracked tractor trolleys, pickup trucks & refrigerated reefers.</td>
+        </tr>
+        <tr>
+          <td><strong>10. Export / Import</strong></td>
+          <td>Cross-border certifications (APEDA), phytosanitary, international trade.</td>
+          <td>Connecting FPOs to Gulf & European importers for GI-tagged crops (Nashik Grapes, Onions).</td>
+        </tr>
+        <tr>
+          <td><strong>11. Market Intelligence</strong></td>
+          <td>Live APMC mandi rates, 30-day price trend graphs, demand-supply indicators.</td>
+          <td>e-NAM linked price alerts help farmers decide when to harvest and sell.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PAGE 6: "POST YOUR REQUIREMENT" RADAR & UNIT ECONOMICS -->
+  <div class="page">
+    <h2 class="section-title">9. Hero Feature: "Post Your Requirement" Matching Radar</h2>
+    <p>Instead of manually browsing hundreds of listings, any stakeholder (farmer, restaurant, flour mill, trader) can post a single requirement:</p>
+    
+    <div class="card card-accent" style="margin-bottom: 12px;">
+      <p><strong>Example Query in Demo:</strong> <em>"Need 10 Tonnes Wheat, Grade A, Delivered to Thane by October 15, Budget: ₹2,400/Qtl"</em></p>
+      <p style="margin: 0; font-size: 8.5pt; color: #166534;">
+        Upon submission, FasalSanjha's algorithmic radar engine scans nearby clusters and instantly returns ranked matches:
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+      <div class="card">
+        <strong>1. Ramesh Patil (Farmer, Nashik)</strong> • <span class="badge badge-green">96% Match</span>
+        <p style="font-size: 8pt; margin-top: 3px;">Has 12 Tonnes Sharbati Wheat harvesting Oct 12. Quoted ₹2,350/Qtl. [Direct Chat / Order]</p>
+      </div>
+      <div class="card">
+        <strong>2. Jai Kisan Transporters (Nashik)</strong> • <span class="badge badge-blue">94% Match</span>
+        <p style="font-size: 8pt; margin-top: 3px;">10-Tonne Eicher Truck available Oct 13. Rate: ₹4,200 total freight to Thane. [Book Transit]</p>
+      </div>
+      <div class="card">
+        <strong>3. Mahagenco Cold Storage (Kalyan)</strong> • <span class="badge badge-yellow">91% Match</span>
+        <p style="font-size: 8pt; margin-top: 3px;">WDRA Warehouse 8km from Thane delivery point. Space reserved for 15 days. [Reserve]</p>
+      </div>
+      <div class="card">
+        <strong>4. Sahyadri Agri Processors</strong> • <span class="badge badge-purple">88% Match</span>
+        <p style="font-size: 8pt; margin-top: 3px;">Cleaning, grading & 25kg vacuum packaging available at ₹40/bag. [Attach Service]</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">10. Business Model & Financial Unit Economics</h2>
+    <p>FasalSanjha generates recurring revenue from multiple non-conflicting points along the agricultural value chain:</p>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="metric-value">5.0%</div>
+        <div class="metric-label">Crop Settlement Success Fee</div>
+        <p style="font-size: 8pt; margin-top: 4px;">Charged on net profit generated upon final harvest sale.</p>
+      </div>
+      <div class="card">
+        <div class="metric-value">2.5%</div>
+        <div class="metric-label">Bazaar Commerce Take Rate</div>
+        <p style="font-size: 8pt; margin-top: 4px;">Charged on inputs, fodder, processing, and equipment transactions.</p>
+      </div>
+      <div class="card">
+        <div class="metric-value">1.0%</div>
+        <div class="metric-label">Investor Management Fee</div>
+        <p style="font-size: 8pt; margin-top: 4px;">Annualized asset servicing fee for portfolio tracking, escrow & tax filing.</p>
+      </div>
+    </div>
+
+    <h3 style="color: #0b4f2e;">3-Year Financial Projections (Pilot to Scale)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Year 1 (Pilot - 3 Districts)</th>
+          <th>Year 2 (State - Maharashtra)</th>
+          <th>Year 3 (National - 5 States)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Active Cultivated Acres</strong></td>
+          <td>1,500 Acres</td>
+          <td>18,000 Acres</td>
+          <td>120,000 Acres</td>
+        </tr>
+        <tr>
+          <td><strong>Gross Merchandise Value (GMV)</strong></td>
+          <td>₹7.50 Crore</td>
+          <td>₹95.00 Crore</td>
+          <td>₹640.00 Crore</td>
+        </tr>
+        <tr>
+          <td><strong>Platform Net Revenue</strong></td>
+          <td><strong>₹48.75 Lakh</strong></td>
+          <td><strong>₹6.17 Crore</strong></td>
+          <td><strong>₹41.60 Crore</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Gross Margin</strong></td>
+          <td>68%</td>
+          <td>76%</td>
+          <td>82%</td>
+        </tr>
+        <tr>
+          <td><strong>Net EBITDA</strong></td>
+          <td>-₹18.50 Lakh (Pilot setup)</td>
+          <td>+₹1.85 Crore (Profitable)</td>
+          <td>+₹18.20 Crore</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PAGE 7: 14-SLIDE PITCH DECK & JURY Q&A CHEAT SHEET -->
+  <div class="page">
+    <h2 class="section-title">11. 14-Slide Pitch Deck Summary (Presenter Guide)</h2>
+    
+    <div style="font-size: 8.5pt;">
+      <p><strong>Slide 1 (Title):</strong> FasalSanjha — "Sow Together. Share the Harvest." Bharat Agri-Financial Services Pvt. Ltd.</p>
+      <p><strong>Slide 2 (The Agrarian Crisis):</strong> ₹8.5 Lakh Cr debt market; 86% smallholders paying 24-36% predatory interest.</p>
+      <p><strong>Slide 3 (The Solution):</strong> Crop Equity & Smart Escrow — Interest-free funding, shared harvest risk, guaranteed land safety.</p>
+      <p><strong>Slide 4 (The Complete Chain):</strong> Land ➔ Funding ➔ Inputs ➔ Cultivation ➔ Monitoring ➔ Harvest ➔ Storage ➔ Processing ➔ Sale.</p>
+      <p><strong>Slide 5 (Farmer Value Prop):</strong> Ramesh Patil story: 0% debt, quality inputs, guaranteed off-take, 2.2x net income.</p>
+      <p><strong>Slide 6 (Investor Value Prop):</strong> Neha Sharma story: 18-32% IRR real asset returns, satellite NDVI verification, capital loss protection.</p>
+      <p><strong>Slide 7 (Tripartite Legal Framework):</strong> Section 5(1) MLRC compliance; land can NEVER be mortgaged or transferred.</p>
+      <p><strong>Slide 8 (Technology Moat):</strong> Sentinel-2 satellite vegetation indexing, IoT weather integration, automated waterfall escrow.</p>
+      <p><strong>Slide 9 (FasalSanjha Bazaar):</strong> 11 working modules (inputs, equipment, fodder, granaries, cold storage, B2B, processing).</p>
+      <p><strong>Slide 10 (Matching Radar):</strong> Instant multi-party requirement matching engine with real-time transit & storage booking.</p>
+      <p><strong>Slide 11 (Market Size & TAM):</strong> Total Addressable Market: ₹8.5 Lakh Cr crop finance; Serviceable: ₹42,000 Cr in MH & MP.</p>
+      <p><strong>Slide 12 (Business Model):</strong> 5% settlement take rate, 2.5% marketplace commission, 1% investor fee. High gross margins (>75%).</p>
+      <p><strong>Slide 13 (Traction & Unit Economics):</strong> ₹7.5 Cr GMV in Year 1 pilot across Nashik, Pune & Ahmednagar.</p>
+      <p><strong>Slide 14 (The Ask & Vision):</strong> Raising ₹1.5 Crore Seed to onboard 10,000 farmers and deploy 50 cluster field agents.</p>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 15px;">12. Top 5 Tough Investor Questions & Answers</h2>
+
+    <div class="card">
+      <strong style="color: #0b4f2e;">Q1: What happens if there is a severe drought or hailstorm and the crop fails completely?</strong>
+      <p style="font-size: 8.5pt; margin-top: 4px;">
+        <strong>Answer:</strong> Unlike bank loans where the farmer is ruined, FasalSanjha integrates dual insurance: 1) Pradhan Mantri Fasal Bima Yojana (PMFBY) covering yield loss for the farmer, and 2) Parametric private capital protection cover for investors (triggered by verified rainfall/satellite deficits), returning 50% to 70% of invested principal. The remaining loss is shared according to the tripartite equity contract.
+      </p>
+    </div>
+
+    <div class="card">
+      <strong style="color: #0b4f2e;">Q2: What prevents the farmer from selling the harvest in the black market and claiming it was lost?</strong>
+      <p style="font-size: 8.5pt; margin-top: 4px;">
+        <strong>Answer:</strong> Three layers of tamper-proof verification: 1) Weekly automated Sentinel-2 satellite NDVI scans flag pre-harvest harvesting activities in real time; 2) Local cluster field agents visit 10 days before harvest to estimate tonnage; 3) All transport from farm gate must be booked through FasalSanjha Logistics with GPS e-way bills to unlock final tranche payouts.
+      </p>
+    </div>
+
+    <div class="card">
+      <strong style="color: #0b4f2e;">Q3: Is this considered collective investment or NBFC lending by RBI / SEBI?</strong>
+      <p style="font-size: 8.5pt; margin-top: 4px;">
+        <strong>Answer:</strong> No. FasalSanjha operates as a technology facilitator for bilateral / tripartite Agricultural Production Agreements under the Indian Contract Act, 1872. There is no pooled fund, no guaranteed debt return, and money stays in a scheduled bank escrow account until milestone conditions are verified.
+      </p>
+    </div>
+
+    <div class="card">
+      <strong style="color: #0b4f2e;">Q4: How do you acquire farmers in rural India?</strong>
+      <p style="font-size: 8.5pt; margin-top: 4px;">
+        <strong>Answer:</strong> Through local FPOs (Farmer Producer Organizations), village Krishi Seva Kendras, and our commissioned field agents (local agri-diploma graduates who earn 1% on verified settlements). We don't acquire individual farmers cold; we onboard entire 50-farmer clusters at once.
+      </p>
+    </div>
+
+    <div class="card">
+      <strong style="color: #0b4f2e;">Q5: What is your primary competitive advantage against DeHaat, Ninjacart, or Samunnati?</strong>
+      <p style="font-size: 8.5pt; margin-top: 4px;">
+        <strong>Answer:</strong> Ninjacart focuses solely on B2B supply chain logistics; DeHaat focuses on input retail; Samunnati provides debt NBFC loans. FasalSanjha is the ONLY platform connecting retail/institutional capital directly to crop equity, aligning the economic incentives of farmer, investor, and buyer in a closed loop.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
