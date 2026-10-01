@@ -131,9 +131,14 @@ export const Home: React.FC = () => {
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-2card overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
                 <img
-                  src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&q=80&w=800"
+                  src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=800"
                   alt="Farmer Ramesh Patil in Nashik Onion field"
                   className="w-full h-80 sm:h-96 object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    const base = (import.meta as any).env?.BASE_URL || '/';
+                    target.src = `${base}images/farmer-hero.jpg`;
+                  }}
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent p-6 flex flex-col justify-end text-white">
